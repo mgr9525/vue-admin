@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from './vuex/store'
-import Login from './views/Login.vue'
-import NotFound from './views/404.vue'
 import Home from './views/Home.vue'
+import NotFound from './views/404.vue'
 import Main from './views/Main.vue'
 import Table from './views/nav1/Table.vue'
 import Form from './views/nav1/Form.vue'
@@ -16,7 +15,7 @@ import echarts from './views/charts/echarts.vue'
 let routes = [
     {
         path: '/login',
-        component: Login,
+        component: require('@/views/Login'),
         name: '',
         hidden: true
     },
@@ -83,6 +82,10 @@ router.beforeEach((to, from, next) => {
 //NProgress.start();
 if (to.path == '/login') {
     removeToken();
+    next();
+    return;
+}
+if (to.path == '/404') {
     next();
     return;
 }
