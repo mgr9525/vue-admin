@@ -79,7 +79,7 @@
 			},*/formSubmit(){
 				this.$refs.formd.validate((valid) => {
 					if (valid) {
-                        var regd=/[^\d\,]/;
+                        /*var regd=/[^\d\,]/;
                         if(regd.test(this.formData.phone)){
                             this.$message({
                                 message: '手机号码列表错误，只能是数字和逗号(,)',
@@ -89,10 +89,10 @@
                         }
                         var params=this.formData;
                         params['params']=conts;
-                        params['phones']=this.formData.phone.split(',');
+                        params['phones']=this.formData.phone.split(',');*/
 
 						this.formLoading = true;
-						this.$post('/api/',params).then(res=>{
+						this.$post('/api/',this.formData).then(res=>{
               				console.log(res);
                             this.$emit('submitOK');
                             this.formLoading = false;
