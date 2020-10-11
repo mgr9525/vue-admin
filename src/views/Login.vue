@@ -21,6 +21,7 @@ import { setToken } from '@/common/js/storage';
   export default {
     data() {
       return {
+        redirect: null,
         logining: false,
         ruleForm2: {
           account: 'admin',
@@ -39,6 +40,9 @@ import { setToken } from '@/common/js/storage';
         checked: true
       };
     },
+    mounted(){
+        this.redirect=this.$route.query.redirect;
+    },
     methods: {
       handleReset2() {
         this.$refs.ruleForm2.resetFields();
@@ -55,7 +59,7 @@ import { setToken } from '@/common/js/storage';
               this.logining = false;
               //NProgress.done();
               // setToken(res.data);
-              this.$router.push('/');
+              this.$router.push(this.redirect || '/');
             }).catch(err=>{
               this.logining = false;
               this.$message({

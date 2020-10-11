@@ -23,7 +23,7 @@ Vue.use(ElementUI)
 //});
 
 Vue.prototype.$post=api.post;
-Vue.prototype.$resUrl=api.resUrl;
+Vue.prototype.$apiUrl=api.apiUrl;
 new Vue({
   //el: '#app',
   //template: '<App/>',

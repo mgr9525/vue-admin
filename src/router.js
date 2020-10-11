@@ -102,19 +102,19 @@ if (to.path == '/404') {
 //   next({ path: '/models' })
 //   return;
 // }
-if(store.state.userinfo.login==true){
+/*if(store.state.userinfo.login==true){
     next();
     return;
-}
+}*/
 store.dispatch('getLgInfo').then(()=>{
     if(store.state.userinfo.login==true){
-    next();
+        next();
     }else{
-    next({ path: '/login' })
+        next(`/login?redirect=${to.path}`);
     }
 }).catch(err=>{
     console.log('getLgInfo err:',err)
-    next({ path: '/login' })
+    next(`/login?redirect=${to.path}`);
 });
 })
 
