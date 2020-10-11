@@ -25,7 +25,11 @@ let routes = [
         name: '',
         hidden: true
     },
-    //{ path: '/main', component: Main },
+    {
+        path: '/',
+        hidden: true,
+        redirect: { path: '/main' }
+    },
     {
         path: '/',
         component: Home,

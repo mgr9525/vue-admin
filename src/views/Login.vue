@@ -55,7 +55,7 @@ import { setToken } from '@/common/js/storage';
               this.logining = false;
               //NProgress.done();
               // setToken(res.data);
-              this.$router.push('/table');
+              this.$router.push('/');
             }).catch(err=>{
               this.logining = false;
               this.$message({
