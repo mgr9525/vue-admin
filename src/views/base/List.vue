@@ -40,10 +40,8 @@
 			<el-table-column label="操作" width="150">
 				<template scope="{row}">
 					<el-button-group>
-						<el-button size="small" type="warning" @click="$refs.fileEdit.show(row)">编辑</el-button>
-						<el-popconfirm title="确定要删除吗？" @onConfirm="delFun(row.Xid)">
-						<el-button size="small" type="danger" slot="reference">删除</el-button>
-						</el-popconfirm>
+						<el-button size="small" type="warning" @click="$refs.editor.show(row)">编辑</el-button>
+						<el-button size="small" type="danger" @click="handleDel(row)">删除</el-button>
 					</el-button-group>
 				</template>
 			</el-table-column>
@@ -106,7 +104,10 @@
 			},handleEdit(){
 
 			},handleDel(){
-
+				this.$confirm('确定要删除吗?', '提示', {
+					type: 'warning'
+				}).then(()=>{
+				});
 			},batchRemove(){
 
 			}
